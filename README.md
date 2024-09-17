@@ -1,38 +1,28 @@
 # Yolks
 
-A curated collection of core images that can be used with Pterodactyl's Egg system. Each image is rebuilt
-periodically to ensure dependencies are always up-to-date.
+PterodactylのEggシステムで使用できるコアイメージの厳選されたコレクションです。各イメージは、依存関係が常に最新の状態であることを保証するために定期的に再構築されます。
 
-Images are hosted on `ghcr.io` and exist under the `games`, `installers`, and `yolks` spaces. The following logic
-is used when determining which space an image will live under:
+イメージは `ghcr.io` にホストされており、`games`、`installers`、および `yolks` スペースの下に存在します。各イメージの配置場所を決定する際には、次のロジックが使用されます。
 
-* `oses` — base images containing core packages to get you started.
-* `games` — anything within the `games` folder in the repository. These are images built for running a specific game
-or type of game.
-* `installers` — anything living within the `installers` directory. These images are used by install scripts for different
-Eggs within Pterodactyl, not for actually running a game server. These images are only designed to reduce installation time
-and network usage by pre-installing common installation dependencies such as `curl` and `wget`.
-* `yolks` — these are more generic images that allow different types of games or scripts to run. They're generally just
-a specific version of software and allow different Eggs within Pterodactyl to switch out the underlying implementation. An
-example of this would be something like Java or Python which are used for running bots, Minecraft servers, etc.
+* `oses` — 基本的なパッケージを含むベースイメージで、スタートのためのコアパッケージが含まれています。
+* `games` — リポジトリ内の `games` フォルダ内にあるもの。特定のゲームやゲームタイプを実行するために作成されたイメージです。
+* `installers` — `installers` ディレクトリ内にあるもの。これらのイメージは、Pterodactylの異なるEggsのインストールスクリプトで使用され、実際にゲームサーバーを実行するためのものではありません。これらのイメージは、一般的なインストールの依存関係（`curl`や`wget`など）を事前にインストールすることで、インストール時間とネットワーク使用量を削減するために設計されています。
+* `yolks` — さまざまな種類のゲームやスクリプトを実行できる、より一般的なイメージです。通常は特定のソフトウェアのバージョンであり、Pterodactyl内の異なるEggsが基盤の実装を切り替えることを可能にします。例えば、JavaやPythonのようなものは、ボットやMinecraftサーバーを実行するために使用されます。
 
-All of these images are available for `linux/amd64` and `linux/arm64` versions, unless otherwise specified, to use
-these images on an arm64 system, no modification to them or the tag is needed, they should just work.
+これらのイメージは特に指定がない限り、すべて `linux/amd64` および `linux/arm64` バージョンで利用可能です。arm64システムでこれらのイメージを使用する場合、イメージやタグの変更は不要で、そのまま動作します。
 
-## Contributing
+## 貢献方法
 
-When adding a new version to an existing image, such as `java v42`, you'd add it within a child folder of `java`, so
-`java/42/Dockerfile` for example. Please also update the correct `.github/workflows` file to ensure that this new version
-is tagged correctly.
+既存のイメージに新しいバージョン（例: `java v42`）を追加する場合、そのバージョンの子フォルダ（例: `java/42/Dockerfile`）内に追加します。また、新しいバージョンが正しくタグ付けされるように、該当する `.github/workflows` ファイルも更新してください。
 
-## Available Images
+## 利用可能なイメージ
 
-* [`base oses`](https://github.com/pterodactyl/yolks/tree/master/oses)
+* [`ベース OS`](https://github.com/pterodactyl/yolks/tree/master/oses)
   * [`alpine`](https://github.com/pterodactyl/yolks/tree/master/oses/alpine)
     * `ghcr.io/pterodactyl/yolks:alpine`
   * [`debian`](https://github.com/pterodactyl/yolks/tree/master/oses/debian)
     * `ghcr.io/pterodactyl/yolks:debian`
-* [`games`](https://github.com/pterodactyl/yolks/tree/master/games)
+* [`ゲーム`](https://github.com/pterodactyl/yolks/tree/master/games)
   * [`rust`](https://github.com/pterodactyl/yolks/tree/master/games/rust)
     * `ghcr.io/pterodactyl/games:rust`
   * [`source`](https://github.com/pterodactyl/yolks/tree/master/games/source)
@@ -89,7 +79,9 @@ is tagged correctly.
   * [`node20`](https://github.com/pterodactyl/yolks/tree/master/nodejs/18)
     * `ghcr.io/pterodactyl/yolks:nodejs_20`
 * [`python`](https://github.com/pterodactyl/yolks/tree/master/python)
-  * [`python3.7`](https://github.com/pterodactyl/yolks/tree/master/python/3.7)
+  * [`python3.
+
+7`](https://github.com/pterodactyl/yolks/tree/master/python/3.7)
     * `ghcr.io/pterodactyl/yolks:python_3.7`
   * [`python3.8`](https://github.com/pterodactyl/yolks/tree/master/python/3.8)
     * `ghcr.io/pterodactyl/yolks:python_3.8`
@@ -98,7 +90,7 @@ is tagged correctly.
   * [`python3.10`](https://github.com/pterodactyl/yolks/tree/master/python/3.10)
     * `ghcr.io/pterodactyl/yolks:python_3.10`
 
-### Installation Images
+### インストールイメージ
 
 * [`alpine-install`](https://github.com/pterodactyl/yolks/tree/master/installers/alpine)
   * `ghcr.io/pterodactyl/installers:alpine`
